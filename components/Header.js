@@ -16,20 +16,22 @@ import visionlogomobile from '/images/vision-logo-mobile.png'
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { useRouter } from "next/router"
 import { useRecoilState } from 'recoil';
+import { modalState } from '../atoms/modalAtom';
 
 function Header() {
     const { data: session } = useSession();
+    const [open, setOpen] = useRecoilState(modalState)
     const router = useRouter()
 
     return (
         <div className='shadow-sm border-b bg-white sticky top-0 z-50'>
             <div className='flex justify-between max-w-6xl mx-5 lg:mx-auto'>
             {/* Left */}
-            <div onCLick={() => router.push('/')}className='relative hidden lg:inline-grid w-24 cursor-pointer'>
+            <div onClick={() => router.push('/')}className='relative hidden lg:inline-grid w-24 cursor-pointer'>
                 <Image src={visionlogo} layout='fill' objectFit="contain"/>
             </div>
         
-            <div onCLick={() => router.push('/')} className="relative w-10 lg:hidden flex-shrink-0 cursor-pointer">
+            <div onClick={() => router.push('/')} className="relative w-5 lg:hidden flex-shrink-0 cursor-pointer">
             <Image src={visionlogomobile} layout='fill' objectFit="contain"/>
             </div>
 
@@ -55,7 +57,7 @@ function Header() {
                 <PaperAirplaneIcon className='navBtn rotate-45' />
                 <div className='absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-pulse text-white'>3</div>
                 </div> 
-                <PlusCircleIcon onClick={() =>setOpen(true)}className='navBtn' />
+                <PlusCircleIcon onClick={() => setOpen(true)} className='navBtn' />
                 <UserGroupIcon className='navBtn' />
                 <HeartIcon className='navBtn'/>
 

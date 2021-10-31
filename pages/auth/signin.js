@@ -12,7 +12,7 @@ function signIn({ providers }) {
         <div className="w-80">
             <Image src={visionlogo} alt="visionlogo" />
             <p className="font-xs italic mt-5">
-                DISCLAIMER: VisionGram is not a real WebApp and it was built by Vision for display and educational purposes.
+                DISCLAIMER: VisionGram is not a real WebApp and it was built by Vision for display and educational purposes. And also some ui components arent functional and just for ui decoration.
             </p>
         </div>
 
